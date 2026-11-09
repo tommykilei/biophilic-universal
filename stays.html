@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airbnb Stays in Kenya | Biophilic Universal Tours &amp; Travels Ltd</title>
+  <meta name="description" content="Find a comfortable Airbnb stay in Kenya to go with your safari or car hire. Send an enquiry to Biophilic Universal Tours &amp; Travels Ltd.">
+  <meta property="og:title" content="Airbnb Stays in Kenya | Biophilic Universal">
+  <meta property="og:description" content="Tours, safaris and car hire across Kenya.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header" id="header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html" aria-label="Biophilic Universal home">
+        <img class="logo-light" src="assets/logo/logo-light.png" alt="Biophilic Universal Tours &amp; Travels Ltd" width="1021" height="595">
+        <img class="logo-dark" src="assets/logo/logo.png" alt="" width="1021" height="595" aria-hidden="true">
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="tours.html">Tours &amp; Safaris</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="car-hire.html">Car Hire</a>
+        <a href="stays.html" aria-current="page">Stays</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+        <a class="btn btn-orange nav-cta" href="#enquire">Plan Your Trip</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero ph" style="--img:url(../assets/images/airbnb.jpg)">
+      <div class="wrap">
+        <h1>Stays across Kenya</h1>
+        <p>A comfortable place to sleep, matched to your safari, your route and your dates.</p>
+        <div class="actions"><a class="btn btn-orange" href="#enquire">Send a Stay Enquiry</a></div>
+      </div>
+    </section>
+
+    <section class="section wrap split">
+      <div>
+        <h2>Airbnb stays, planned with your trip</h2>
+        <p>Where you sleep shapes how a trip feels. We help you find Airbnb stays that suit where you are travelling, who you are travelling with and how long you are staying.</p>
+        <p>Pair a stay with a safari or a hired car, or book a stay on its own. Tell us what you need and we will come back with options.</p>
+        <div class="actions">
+          <a class="btn btn-dark" href="#enquire">Send a Stay Enquiry</a>
+          <!-- Replace the href below with your own Airbnb profile or listing link -->
+          <a class="btn btn-line" href="https://www.airbnb.com/" target="_blank" rel="noopener">Browse on Airbnb</a>
+        </div>
+      </div>
+      <div class="ph tall reveal" style="--img:url(../assets/images/airbnb-2.jpg)" role="img" aria-label="Guest room with a view in Kenya"></div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <div class="grid g3 why"><div><h3>Tell us your plans</h3><p>Share your dates, group size and the area of Kenya you will be in.</p></div><div><h3>We suggest stays</h3><p>We point you to Airbnb stays that fit your route and travel dates.</p></div><div><h3>Book and travel</h3><p>Book your stay, then add a safari or car hire if you want them.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="enquire">
+      <h2>Send a stay enquiry</h2>
+      <p class="lead">Fill in the details and your enquiry opens in WhatsApp, ready to send.</p>
+      <form class="form" id="stayForm" novalidate>
+        <div class="form-grid">
+          <div><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+          <div><label for="area">Area or destination</label><input id="area" name="area" type="text" placeholder="e.g. Nairobi, Diani, Naivasha"></div>
+          <div><label for="checkin">Check-in</label><input id="checkin" name="checkin" type="date"></div>
+          <div><label for="checkout">Check-out</label><input id="checkout" name="checkout" type="date"></div>
+          <div><label for="guests">Number of guests</label><input id="guests" name="guests" type="number" min="1" value="2"></div>
+          <div><label for="addon">Add to my stay</label><select id="addon" name="addon"><option>Stay only</option><option>Stay and safari</option><option>Stay and car hire</option><option>Stay, safari and car hire</option></select></div>
+        </div>
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="notes" rows="4"></textarea>
+        <button class="btn btn-orange" type="submit">Send Enquiry</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="wrap fgrid">
+      <div>
+        <a class="brand foot-brand" href="index.html" aria-label="Biophilic Universal home"><img src="assets/logo/logo-light.png" alt="Biophilic Universal Tours &amp; Travels Ltd" width="1021" height="595" loading="lazy"></a>
+        <p>Tours, travel experiences and car hire across Kenya.</p>
+      </div>
+      <div><h3>Explore</h3><a href="index.html">Home</a><a href="about.html">About Us</a><a href="destinations.html">Destinations</a><a href="gallery.html">Gallery</a></div>
+      <div><h3>Travel</h3><a href="tours.html">Tours &amp; Safaris</a><a href="packages.html">Tour Packages</a><a href="car-hire.html">Car Hire</a><a href="stays.html">Airbnb Stays</a><a href="contact.html">Booking Enquiry</a></div>
+      <div><h3>Contact</h3><p>Phone: [to be added]</p><p>Email: [to be added]</p><p>Address: [to be added]</p><div class="social"><!-- Replace each # with your real page link -->
+          <a href="#" data-social="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" data-social="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+          <a href="#" data-social="tiktok" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.8 2.4 4.6 5 4.8"/></svg></a>
+          <a href="#" data-social="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.8A9 9 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.4-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg></a>
+        </div></div>
+    </div>
+    <div class="wrap legal"><span>&copy; <span id="year">2026</span> Biophilic Universal Tours &amp; Travels Ltd</span><span><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></div>
+  </footer>
+  <a class="wa-float" href="#contact" data-whatsapp aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.8A9 9 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.4-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg></a>
+</body>
+</html>

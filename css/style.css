@@ -134,3 +134,80 @@ a{color:inherit}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== Refinement pass ===== */
+/* Logo: larger, on a white badge so dark lettering stays readable over the hero */
+.brand{display:block;background:#fff;padding:.3rem .6rem;border-radius:4px;line-height:0}
+.brand img{height:58px;width:auto;display:block;transition:height .3s}
+.site-header.scrolled .brand img{height:50px}
+.site-header.scrolled .brand{padding:.15rem .4rem}
+.foot-brand{display:inline-block;margin-bottom:.8rem}
+.foot-brand img{height:72px}
+@media(min-width:900px){.brand img{height:74px}.site-header.scrolled .brand img{height:56px}}
+
+/* Hero video */
+.hero{background:#1a1a1a;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::before{z-index:1}
+.hero-inner{z-index:2}
+.hero-toggle{position:absolute;right:var(--gap);bottom:1.5rem;z-index:3;background:rgba(0,0,0,.55);color:#fff;border:2px solid #fff;padding:.5rem 1.1rem;font:inherit;font-weight:600;cursor:pointer;transition:background .25s,color .25s}
+.hero-toggle:hover{background:#fff;color:#000}
+
+/* Loading skeleton */
+.skeleton{display:none}
+.js .skeleton{display:block;position:fixed;inset:0;z-index:200;background:#fff;transition:opacity .45s}
+.skeleton.done{opacity:0;pointer-events:none}
+.sk{display:block;border-radius:4px;background:linear-gradient(90deg,#ececec 25%,#f8f8f8 50%,#ececec 75%);background-size:200% 100%;animation:shimmer 1.3s linear infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+.sk-bar{display:flex;justify-content:space-between;align-items:center;padding:1rem var(--gap)}
+.sk-logo{width:110px;height:56px}.sk-nav{width:40%;max-width:420px;height:22px}
+.sk-hero{padding:4rem var(--gap) 2rem;display:grid;gap:1rem;max-width:760px}
+.sk-h1{height:56px;width:100%}.sk-h1.short{width:60%}.sk-line{height:18px;width:80%}.sk-line.short{width:55%}
+.sk-row{display:flex;gap:1rem;margin-top:1rem}.sk-btn{width:150px;height:50px}
+.sk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--gap);padding:2rem var(--gap)}
+.sk-card{height:180px}
+
+/* Airbnb section and secondary button */
+.btn-line{border-color:var(--black);color:var(--black)}
+.btn-line:hover{background:var(--black);color:#fff}
+#stays .actions{margin-top:.5rem}
+
+/* Social icons */
+.social{display:flex;gap:.6rem;margin-top:.9rem}
+.footer .social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;padding:0;border:1px solid #444;border-radius:50%;color:#ddd;transition:background .25s,color .25s,border-color .25s}
+.footer .social a:hover{background:var(--orange);border-color:var(--orange);color:#000}
+.social svg{width:20px;height:20px}
+
+/* Floating WhatsApp button */
+.wa-float{position:fixed;right:1rem;bottom:1rem;z-index:60;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px}
+.hero-toggle{bottom:5rem}
+@media(min-width:900px){.hero-toggle{bottom:1.5rem;right:calc(var(--gap) + 4.5rem)}}
+
+/* Logo without a badge: white-lettering version over the hero, original once the header turns white */
+.brand,.site-header.scrolled .brand{background:none;padding:0;border-radius:0}
+.logo-dark{display:none!important}
+.site-header.scrolled .logo-light{display:none}
+.site-header.scrolled .logo-dark{display:block!important}
+/* Trimmed logo: slightly larger */
+.brand img{height:62px}
+.site-header.scrolled .brand img{height:54px}
+@media(min-width:900px){.brand img{height:82px}.site-header.scrolled .brand img{height:62px}}
+
+/* ===== Stays page ===== */
+.page-hero{min-height:55svh;display:flex;align-items:flex-end;color:#fff;position:relative;padding-top:7rem}
+.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.3))}
+.page-hero .wrap{position:relative;padding-bottom:3.5rem}
+.page-hero h1{font-size:clamp(2.4rem,6vw,4.2rem)}
+.page-hero p{color:#eee;font-size:1.15rem}
+.form{display:grid;gap:1rem;max-width:720px}
+.form-grid{display:grid;gap:1rem}
+.form label{display:block;font-weight:600;margin-bottom:.3rem}
+.form input,.form select,.form textarea{width:100%;font:inherit;padding:.75rem .9rem;border:1.5px solid #999;border-radius:2px;background:#fff;color:#000}
+.form input:focus,.form select:focus,.form textarea:focus{outline:3px solid var(--orange);outline-offset:1px;border-color:#000}
+.form button{justify-self:start;cursor:pointer}
+.form-status{margin:0;font-weight:500;color:var(--black)}
+@media(min-width:600px){.form-grid{grid-template-columns:1fr 1fr}}
+/* Nav fits 8 links on smaller laptops */
+@media(min-width:900px) and (max-width:1149px){.nav{gap:1rem}.nav a{font-size:.9rem}}
