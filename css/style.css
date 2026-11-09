@@ -211,3 +211,13 @@ a{color:inherit}
 @media(min-width:600px){.form-grid{grid-template-columns:1fr 1fr}}
 /* Nav fits 8 links on smaller laptops */
 @media(min-width:900px) and (max-width:1149px){.nav{gap:1rem}.nav a{font-size:.9rem}}
+
+/* Performance: background photos load via JS when near the screen; keep the gradient until then */
+.ph{--img:none}
+
+/* Hero video control: icon-only round button */
+.hero-toggle{display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%}
+.hero-toggle svg{width:20px;height:20px;fill:currentColor}
+.hero-toggle .icon-play{display:none}
+.hero-toggle.is-paused .icon-play{display:block}
+.hero-toggle.is-paused .icon-pause{display:none}

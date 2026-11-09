@@ -29,7 +29,7 @@
   } else { items.forEach((el) => el.classList.add('in')); }
 
   // WhatsApp: set your number (digits only, with country code) to activate
-  const WHATSAPP_NUMBER = '0746727615'; // e.g. '2547XXXXXXXX'
+  const WHATSAPP_NUMBER = '254746727615'; // e.g. '2547XXXXXXXX'
   document.querySelectorAll('[data-whatsapp]').forEach((a) => {
     if (!WHATSAPP_NUMBER) return;
     a.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('Hello Biophilic Universal, I would like to plan a trip.');
@@ -48,21 +48,39 @@
   else window.addEventListener('load', hideSkeleton);
   setTimeout(hideSkeleton, 6000); // safety net on very slow connections
 
-  // Hero video: loops silently by default; the only control is play/pause
+  // Lazy-load background photos shortly before they scroll into view
+  const bgs = document.querySelectorAll('[data-bg]');
+  const loadBg = (el) => { el.style.setProperty('--img', 'url(' + el.dataset.bg + ')'); el.removeAttribute('data-bg'); };
+  if ('IntersectionObserver' in window) {
+    const bgIo = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { loadBg(en.target); bgIo.unobserve(en.target); } });
+    }, { rootMargin: '500px 0px' });
+    bgs.forEach((el) => bgIo.observe(el));
+  } else { bgs.forEach(loadBg); }
+
+  // Hero video: loops silently by default; the only control is play/pause.
+  // It also pauses while scrolled out of view, which keeps scrolling smooth.
   const video = document.getElementById('heroVideo');
   const toggle = document.getElementById('heroToggle');
   if (video && toggle) {
+    let userPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const label = () => {
       const playing = !video.paused;
-      toggle.textContent = playing ? 'Pause' : 'Play';
+      toggle.classList.toggle('is-paused', !playing);
       toggle.setAttribute('aria-label', playing ? 'Pause background video' : 'Play background video');
     };
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
-    toggle.addEventListener('click', () => { video.paused ? video.play() : video.pause(); });
+    toggle.addEventListener('click', () => {
+      if (video.paused) { userPaused = false; video.play(); } else { userPaused = true; video.pause(); }
+    });
     video.addEventListener('play', label);
     video.addEventListener('pause', label);
-    const start = video.play();
-    if (start && start.catch) start.catch(label);
+    if (userPaused) video.pause(); else { const start = video.play(); if (start && start.catch) start.catch(label); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) { if (!userPaused) video.play().catch(() => {}); }
+        else video.pause();
+      }, { threshold: 0.05 }).observe(video);
+    }
     label();
   }
 
