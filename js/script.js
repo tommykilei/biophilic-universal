@@ -24,7 +24,7 @@
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { threshold: 0.15 });
+    }, { rootMargin: '0px 0px 200px 0px' });
     items.forEach((el) => io.observe(el));
   } else { items.forEach((el) => el.classList.add('in')); }
 
@@ -47,16 +47,6 @@
   if (document.readyState === 'complete') hideSkeleton();
   else window.addEventListener('load', hideSkeleton);
   setTimeout(hideSkeleton, 6000); // safety net on very slow connections
-
-  // Lazy-load background photos shortly before they scroll into view
-  const bgs = document.querySelectorAll('[data-bg]');
-  const loadBg = (el) => { el.style.setProperty('--img', 'url(' + el.dataset.bg + ')'); el.removeAttribute('data-bg'); };
-  if ('IntersectionObserver' in window) {
-    const bgIo = new IntersectionObserver((entries) => {
-      entries.forEach((en) => { if (en.isIntersecting) { loadBg(en.target); bgIo.unobserve(en.target); } });
-    }, { rootMargin: '500px 0px' });
-    bgs.forEach((el) => bgIo.observe(el));
-  } else { bgs.forEach(loadBg); }
 
   // Hero video: loops silently by default; the only control is play/pause.
   // It also pauses while scrolled out of view, which keeps scrolling smooth.
