@@ -156,24 +156,48 @@
   const msgBox = document.getElementById('c-msg');
   if (topic && msgBox && !msgBox.value) msgBox.value = 'I am interested in: ' + topic + '.';
 
-  // Gallery: category filter and photo viewer
+  // Gallery: category filter and viewer for photos, site videos and YouTube videos
   const grid = document.getElementById('galleryGrid');
   if (grid) {
     const items = Array.from(grid.querySelectorAll('.g-item'));
+    items.forEach((it) => { if (it.dataset.type) it.classList.add('is-video'); });
     const chips = document.querySelectorAll('[data-filter]');
-    chips.forEach((chip) => chip.addEventListener('click', () => {
-      const f = chip.dataset.filter;
-      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
-      items.forEach((it) => { it.hidden = !(f === 'all' || it.dataset.cat === f); });
-    }));
+    chips.forEach((chip) => {
+      if (chip.dataset.filter === 'videos' && items.some((it) => it.dataset.type)) chip.hidden = false;
+      chip.addEventListener('click', () => {
+        const f = chip.dataset.filter;
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        items.forEach((it) => {
+          const match = f === 'all' || (f === 'videos' ? !!it.dataset.type : it.dataset.cat === f);
+          it.hidden = !match;
+        });
+      });
+    });
     const dlg = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
+    const lbVid = document.getElementById('lbVideo');
+    const lbFrame = document.getElementById('lbFrame');
     let list = [], pos = 0;
+    // Stops any playing video and hides all three viewers
+    const reset = () => {
+      lbVid.pause(); lbVid.removeAttribute('src'); lbVid.removeAttribute('poster'); lbVid.load();
+      lbFrame.removeAttribute('src');
+      lbImg.hidden = lbVid.hidden = lbFrame.hidden = true;
+    };
     const show = (i) => {
       pos = (i + list.length) % list.length;
       const it = list[pos];
-      lbImg.src = it.dataset.full;
-      lbImg.alt = it.querySelector('img').alt;
+      const thumb = it.querySelector('img');
+      reset();
+      if (it.dataset.type === 'video') {
+        lbVid.poster = thumb.src; lbVid.src = it.dataset.full; lbVid.hidden = false;
+        lbVid.play().catch(() => {});
+      } else if (it.dataset.type === 'youtube') {
+        lbFrame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(it.dataset.id) + '?autoplay=1&rel=0';
+        lbFrame.hidden = false;
+      } else {
+        lbImg.src = it.dataset.full; lbImg.alt = thumb.alt; lbImg.hidden = false;
+      }
     };
     items.forEach((it) => it.addEventListener('click', () => {
       list = items.filter((x) => !x.hidden);
@@ -183,8 +207,10 @@
     document.getElementById('lbPrev').addEventListener('click', () => show(pos - 1));
     document.getElementById('lbNext').addEventListener('click', () => show(pos + 1));
     document.getElementById('lbClose').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('close', reset);
     dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener('keydown', (e) => {
+      if (e.target === lbVid) return; // arrow keys seek inside a playing video
       if (e.key === 'ArrowLeft') show(pos - 1);
       if (e.key === 'ArrowRight') show(pos + 1);
     });

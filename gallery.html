@@ -47,8 +47,30 @@
     </section>
 
     <section class="section wrap" id="photos">
-      <div class="chips" role="group" aria-label="Filter photos"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button><button class="chip" type="button" data-filter="inspiration" aria-pressed="false">Inspiration</button><button class="chip" type="button" data-filter="destinations" aria-pressed="false">Destinations</button><button class="chip" type="button" data-filter="experiences" aria-pressed="false">Experiences</button><button class="chip" type="button" data-filter="stays" aria-pressed="false">Stays</button></div>
+      <div class="chips" role="group" aria-label="Filter photos"><button class="chip" type="button" data-filter="all" aria-pressed="true">All</button><button class="chip" type="button" data-filter="inspiration" aria-pressed="false">Inspiration</button><button class="chip" type="button" data-filter="destinations" aria-pressed="false">Destinations</button><button class="chip" type="button" data-filter="experiences" aria-pressed="false">Experiences</button><button class="chip" type="button" data-filter="stays" aria-pressed="false">Stays</button><button class="chip" type="button" data-filter="videos" aria-pressed="false" hidden>Videos</button></div>
       <div class="g-grid" id="galleryGrid">
+        <!--
+          TEMPLATES (copy a line, remove the comment marks around your copy, edit the three parts):
+
+          VIDEO ON THIS SITE (short MP4 in assets/video/, thumbnail JPG in assets/images/):
+          <button class="g-item" type="button" data-type="video" data-cat="experiences" data-full="assets/video/clip-1.mp4"><img src="assets/images/clip-1.jpg" alt="Describe the video" loading="lazy" decoding="async"></button>
+
+          YOUTUBE VIDEO (use the ID from the video link, the part after v= ):
+          <button class="g-item" type="button" data-type="youtube" data-id="VIDEO_ID" data-cat="experiences"><img src="assets/images/my-video-thumb.jpg" alt="Describe the video" loading="lazy" decoding="async"></button>
+        -->
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-5.jpg"><img src="assets/images/gallery-5.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-6.jpg"><img src="assets/images/gallery-6.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-7.jpg"><img src="assets/images/gallery-7.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-8.jpg"><img src="assets/images/gallery-8.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-9.jpg"><img src="assets/images/gallery-9.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-type="video" data-cat="experiences" data-full="assets/video/clip-1.mp4"><img src="assets/images/clip-1.jpg" alt="Describe the video" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-10.jpg"><img src="assets/images/gallery-10.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-11.jpg"><img src="assets/images/gallery-11.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-12.jpg"><img src="assets/images/gallery-12.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-13.jpg"><img src="assets/images/gallery-13.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-14.jpg"><img src="assets/images/gallery-14.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-15.jpg"><img src="assets/images/gallery-15.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-16.jpg"><img src="assets/images/gallery-16.jpg" alt="Describe the photo in a few words" loading="lazy" decoding="async"></button>
         <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-1.jpeg"><img src="assets/images/gallery-1.jpeg" alt="Safari vehicle at sunrise" loading="lazy" decoding="async"></button>
         <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-2.jpg"><img src="assets/images/gallery-2.jpg" alt="Giraffes on the plains" loading="lazy" decoding="async"></button>
         <button class="g-item" type="button" data-cat="inspiration" data-full="assets/images/gallery-3.jpeg"><img src="assets/images/gallery-3.jpeg" alt="Flamingos on a lake" loading="lazy" decoding="async"></button>
@@ -87,7 +109,11 @@
   <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
     <button class="lb-btn lb-close" type="button" id="lbClose" aria-label="Close photo">&times;</button>
     <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Previous photo">&#8249;</button>
-    <figure><img id="lbImg" alt=""></figure>
+    <figure>
+      <img id="lbImg" alt="" hidden>
+      <video id="lbVideo" controls playsinline preload="metadata" hidden></video>
+      <iframe id="lbFrame" title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen hidden></iframe>
+    </figure>
     <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Next photo">&#8250;</button>
   </dialog>
 
