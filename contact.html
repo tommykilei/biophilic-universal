@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact and Book a Trip | Biophilic Universal Tours &amp; Travels Ltd</title>
+  <meta name="description" content="Contact Biophilic Universal Tours &amp; Travels Ltd in Nairobi, or send a booking enquiry for a safari, tour, car hire or stay in Kenya.">
+  <meta property="og:title" content="Contact and Book a Trip | Biophilic Universal">
+  <meta property="og:description" content="Tours, safaris and car hire across Kenya.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header" id="header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html" aria-label="Biophilic Universal home">
+        <img class="logo-light" src="assets/logo/logo-light.png" alt="Biophilic Universal Tours &amp; Travels Ltd" width="1021" height="595">
+        <img class="logo-dark" src="assets/logo/logo.png" alt="" width="1021" height="595" aria-hidden="true">
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="tours.html">Tours &amp; Safaris</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="car-hire.html">Car Hire</a>
+        <a href="stays.html">Stays</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" aria-current="page">Contact Us</a>
+        <a class="btn btn-orange nav-cta" href="#enquire">Plan Your Trip</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero ph" style="--img:url(../assets/images/hero-mara.jpg)">
+      <div class="wrap">
+        <h1>Plan your trip with us</h1>
+        <p>Tell us where you want to go. We will reply with ideas for your tour, car hire or stay.</p>
+        <div class="actions"><a class="btn btn-orange" href="#enquire">Send an Enquiry</a></div>
+      </div>
+    </section>
+
+    <section class="section wrap contact-layout" id="enquire">
+      <div>
+        <h2>Booking enquiry</h2>
+        <p class="lead">Fill in what you know. Anything you leave blank we can sort out together.</p>
+        <form class="form" id="contactForm" data-enquiry data-title="Trip enquiry" novalidate>
+          <div class="form-grid">
+            <div><label for="c-name">Full name</label><input id="c-name" name="name" type="text" autocomplete="name" required></div>
+            <div><label for="c-phone">Phone or WhatsApp</label><div class="phone-row"><select id="c-code" name="code" aria-label="Country code"><option value="254">Kenya +254</option><option value="255">Tanzania +255</option><option value="256">Uganda +256</option><option value="250">Rwanda +250</option><option value="251">Ethiopia +251</option><option value="27">South Africa +27</option><option value="234">Nigeria +234</option><option value="20">Egypt +20</option><option value="44">United Kingdom +44</option><option value="1">USA / Canada +1</option><option value="49">Germany +49</option><option value="33">France +33</option><option value="39">Italy +39</option><option value="31">Netherlands +31</option><option value="34">Spain +34</option><option value="41">Switzerland +41</option><option value="46">Sweden +46</option><option value="61">Australia +61</option><option value="64">New Zealand +64</option><option value="91">India +91</option><option value="86">China +86</option><option value="81">Japan +81</option><option value="971">United Arab Emirates +971</option><option value="966">Saudi Arabia +966</option><option value="55">Brazil +55</option><option value="">Other (type full number with +)</option></select><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="7XX XXX XXX"></div></div>
+            <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email"></div>
+            <div><label for="c-service">I am interested in</label><select id="c-service" name="service"><option>Tour or safari</option><option>Car hire</option><option>Airbnb stay</option><option>A mix of these</option><option>Something else</option></select></div>
+            <div><label for="c-where">Destinations in mind</label><input id="c-where" name="where" type="text" placeholder="e.g. Maasai Mara, Diani"></div>
+            <div><label for="c-people">Number of travellers</label><input id="c-people" name="people" type="number" min="1" value="2"></div>
+            <div><label for="c-from">Travel from</label><input id="c-from" name="from" type="date"></div>
+            <div><label for="c-to">Travel to</label><input id="c-to" name="to" type="date"></div>
+          </div>
+          <label for="c-msg">Tell us more</label>
+          <textarea id="c-msg" name="msg" rows="5" placeholder="Interests, special requests, questions"></textarea>
+          <div class="form-actions">
+            <button class="btn btn-orange" type="submit">Send via WhatsApp</button>
+            <button class="btn btn-line" type="button" id="emailBtn" data-send="email">Send by Email</button>
+          </div>
+          <p class="form-alt">Use Gmail in your browser? <button type="button" class="linkbtn" id="gmailBtn" data-send="gmail">Open in Gmail</button></p>
+          <p class="form-status" id="contactStatus" role="status"></p>
+        </form>
+      </div>
+
+      <aside class="contact-info" aria-label="Contact details">
+        <div class="info-card"><h3>Call us</h3><p><a href="tel:+254746727615">+254 746 727 615</a><br><a href="tel:+254705368823">+254 705 368 823</a></p></div>
+        <div class="info-card"><h3>WhatsApp</h3><p><a href="https://wa.me/254746727615" target="_blank" rel="noopener">Chat with us</a></p></div>
+        <div class="info-card"><h3>Email</h3><p><a href="mailto:info@biophilictours.com">info@biophilictours.com</a><br><a href="mailto:travelbiophilic@gmail.com">travelbiophilic@gmail.com</a></p></div>
+        <div class="info-card"><h3>Visit</h3><p>Muthaiga Square, Nairobi, Kenya.<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Muthaiga+Square+Nairobi" target="_blank" rel="noopener">Open in Google Maps</a></p></div>
+      </aside>
+    </section>
+
+    <section class="section alt" id="faq">
+      <div class="wrap faq">
+        <h2>Common questions</h2>
+        <details><summary>What happens after I send an enquiry?</summary><p>We read your details and reply with ideas and next steps. Nothing is booked until you confirm.</p></details>
+        <details><summary>Can I hire a car without booking a tour?</summary><p>Yes. Choose car hire in the form, tell us your dates and route, and we will come back with options.</p></details>
+        <details><summary>Can I add a stay to my trip?</summary><p>Yes. We can suggest Airbnb stays that suit your route and dates, alongside a tour or car hire.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="wrap fgrid">
+      <div>
+        <a class="brand foot-brand" href="index.html" aria-label="Biophilic Universal home"><img src="assets/logo/logo-light.png" alt="Biophilic Universal Tours &amp; Travels Ltd" width="1021" height="595" loading="lazy"></a>
+        <p>Tours, travel experiences and car hire across Kenya.</p>
+      </div>
+      <div><h3>Explore</h3><a href="index.html">Home</a><a href="about.html">About Us</a><a href="destinations.html">Destinations</a><a href="gallery.html">Gallery</a></div>
+      <div><h3>Travel</h3><a href="tours.html">Tours &amp; Safaris</a><a href="packages.html">Tour Packages</a><a href="car-hire.html">Car Hire</a><a href="stays.html">Airbnb Stays</a><a href="contact.html">Booking Enquiry</a></div>
+      <div><h3>Contact</h3><p>Phone: <a href="tel:+254746727615">+254 746 727 615</a><a href="tel:+254705368823">+254 705 368 823</a></p><p>Email: <a href="mailto:info@biophilictours.com">info@biophilictours.com</a><a href="mailto:travelbiophilic@gmail.com">travelbiophilic@gmail.com</a></p><p>Address: Muthaiga Square, Nairobi, Kenya.</p><div class="social"><!-- Replace each # with your real page link -->
+          <a href="https://www.facebook.com/profile.php?id=61566707572163" target="_blank" rel="noopener" data-social="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/biophilic_tours_travels_ltd" target="_blank" rel="noopener" data-social="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+          <a href="https://www.tiktok.com/@biophilic_tours_travels" target="_blank" rel="noopener" data-social="tiktok" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.8 2.4 4.6 5 4.8"/></svg></a>
+          <a href="https://wa.me/254746727615" target="_blank" rel="noopener" data-social="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.8A9 9 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.4-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg></a>
+        </div></div>
+    </div>
+    <div class="wrap legal"><span>&copy; <span id="year">2026</span> Biophilic Universal Tours &amp; Travels Ltd</span><span><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></div>
+  </footer>
+  <a class="wa-float" href="#contact" data-whatsapp aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.8A9 9 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.4-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg></a>
+</body>
+</html>
